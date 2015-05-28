@@ -1,3 +1,5 @@
+<h1>NoiseBox User Stories</h1>
+
 <ol>
   <li>A user should be able to play a sound pushing down the synth/drum machine's buttons</li>
   <li>A user should be able to play sounds using all the existing buttons/keys shown</li>
