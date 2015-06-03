@@ -1,0 +1,148 @@
+<!DOCTYPE hmtl>
+
+<title></title>
+
+<!-- SYNTH -->
+<div class="synth">
+
+  <div class="button">
+    <div id="osc">Sine</div>
+    <input id="oscPitch" type="range" min="50" max="5000" step="1" value="90" />
+  </div>
+
+  <div class="button">
+    <div id="osc2">Square</div>
+    <input id="oscPitch2" type="range" min="50" max="5000" step="1" value="90" />
+  </div>
+
+  <div class="button">
+    <div id="osc3">Sawtooth</div>
+    <input id="oscPitch3" type="range" min="50" max="5000" step="1" value="90" />
+  </div>
+
+  <div class="button">
+    <div id="osc4">Triangle</div>
+    <input id="oscPitch4" type="range" min="50" max="5000" step="1" value="90" />
+  </div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script>
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    myAudioContext = new window.AudioContext();
+  var osc = document.getElementById("osc");
+
+//Oscillator # 1
+  osc.onmousedown = function() {
+    var oscPitch = document.getElementById('oscPitch').value;
+    oscillator = myAudioContext.createOscillator(), //creates the oscillator
+    oscillator.type = 'sine';
+    oscillator.frequency.value = oscPitch;
+    oscillator.connect(myAudioContext.destination); //connects it to output
+    oscillator.start(0);
+  };
+
+  osc.onmouseup = function() {
+    oscillator.disconnect();
+  };
+
+//Oscillator # 2
+var osc2 = document.getElementById("osc2");
+  osc2.onmousedown = function() {
+    var oscPitch = document.getElementById('oscPitch2').value;
+    oscillator = myAudioContext.createOscillator(), //creates the oscillator
+    oscillator.type = 'square';
+    oscillator.frequency.value = oscPitch;
+    oscillator.connect(myAudioContext.destination); //connects it to output
+    oscillator.start(0);
+  };
+
+  osc2.onmouseup = function() {
+    oscillator.disconnect();
+  };
+
+//Oscillator # 3
+var osc3 = document.getElementById("osc3");
+
+  osc3.onmousedown = function() {
+    var oscPitch = document.getElementById('oscPitch3').value;
+    oscillator = myAudioContext.createOscillator(), //creates the oscillator
+    oscillator.type = 'sawtooth';
+    oscillator.frequency.value = oscPitch;
+    oscillator.connect(myAudioContext.destination); //connects it to output
+    oscillator.start(0);
+  };
+
+  osc3.onmouseup = function() {
+    oscillator.disconnect();
+  };
+
+//Oscillator # 4
+var osc4 = document.getElementById("osc4");
+
+  osc4.onmousedown = function() {
+    var oscPitch = document.getElementById('oscPitch4').value;
+    oscillator = myAudioContext.createOscillator(), //creates the oscillator
+    oscillator.type = 'triangle';
+    oscillator.frequency.value = oscPitch;
+    oscillator.connect(myAudioContext.destination); //connects it to output
+    oscillator.start(0);
+  };
+
+  osc4.onmouseup = function() {
+    oscillator.disconnect();
+  };
+
+
+</script>
+
+
+<!-- CSS -->
+<style>
+
+.synth {
+  width: 700px;
+  height: 200px;
+  border-style: solid;
+  border-width: 2px;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.button {
+  float: left;
+  margin: 15px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#osc {
+  background-color: red;
+  width: 132px;
+  height: 132px;
+}
+
+#osc2 {
+  background-color: purple;
+  width: 132px;
+  height: 132px;
+}
+
+#osc3 {
+  background-color: blue;
+  width: 132px;
+  height: 132px;
+
+}
+
+#osc4 {
+  background-color: green;
+  width: 132px;
+  height: 132px;
+}
+
+
+</style>

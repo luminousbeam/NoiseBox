@@ -1,0 +1,26 @@
+{
+  "name": "noizebox",
+  "version": "1.0.0",
+  "description": "project4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luminousbeam/NoiseBox.git"
+  },
+  "keywords": [
+    "synth",
+    "drums"
+  ],
+  "author": "jj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luminousbeam/NoiseBox/issues"
+  },
+  "homepage": "https://github.com/luminousbeam/NoiseBox#readme",
+  "dependencies": {
+    "express": "^4.12.4"
+  }
+}
