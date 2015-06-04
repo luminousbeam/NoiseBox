@@ -1,11 +1,13 @@
 <!DOCTYPE hmtl>
 
 <title>NoizeBox</title>
-<header>
-  <link href='http://fonts.googleapis.com/css?family=Cabin+Sketch:700' rel='stylesheet' type='text/css'>
-  <h1>NoizeBox</h1>
-</header>
-
+<head>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Cabin+Sketch:700' rel='stylesheet' type='text/css'> -->
+  <link href='http://fonts.googleapis.com/css?family=Frijole' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<h1>NoizeBox</h1>
 <div class="container">
 
   <!-- SYNTH -->
@@ -42,7 +44,83 @@
 <!-- <button class="bass-drum">Bass Drum (alt/option buttons)</button>
 
 <button class="snare-drum">Snare Drum (back-slash)</button> -->
+</body>
 
+<!-- CSS -->
+<style>
+h1 {
+  font-family: 'Frijole', cursive;
+  font-size: 50px;
+  color: #4D4D4D;
+
+  /*font-family: 'Cabin Sketch', cursive;
+  font-size: 80px;
+  color: #8F2400;*/
+}
+body {
+  background-color: #FFFFE0;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+.synth {
+  /*size*/
+  width: 800px;
+  height: 300px;
+  /*background*/
+  background: tan;
+  background-image: url(http://i121.photobucket.com/albums/o204/Lumi_Nous/light_wood_textures_1600x1200_zpszk4vtqg4.jpg);
+  /*border*/
+  border: 2px outset #ddc18c;
+  /*position*/
+  overflow: hidden;
+  position: relative;
+}
+
+.buttons{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+.button {
+  float: left;
+  margin: 15px;
+  border: 2px outset #ddc18c;
+}
+
+#osc {
+  background-color: #CC0066;
+  width: 132px;
+  height: 132px;
+
+}
+
+#osc2 {
+  background-color: #66387a;
+  width: 132px;
+  height: 132px;
+}
+
+#osc3 {
+  background-color: #0099FF;
+  width: 132px;
+  height: 132px;
+
+}
+
+#osc4 {
+  background-color: #00CC99;
+  width: 132px;
+  height: 132px;
+}
+</style>
 
 
 <!-- JAVASCRIPT -->
@@ -114,74 +192,3 @@ var osc4 = document.getElementById("osc4");
 
 
 </script>
-
-
-<!-- CSS -->
-<style>
-h1 {
-  font-family: 'Cabin Sketch', cursive;
-  font-size: 80px;
-  color: #8F2400;
-}
-.container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%)
-}
-.synth {
-  /*size*/
-  width: 800px;
-  height: 300px;
-  /*background*/
-  background: tan;
-  background-image: url(http://i121.photobucket.com/albums/o204/Lumi_Nous/light_wood_textures_1600x1200_zpszk4vtqg4.jpg);
-  /*border*/
-  border: 2px outset #ddc18c;
-  /*position*/
-  overflow: hidden;
-  position: relative;
-}
-
-.buttons{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%)
-}
-
-.button {
-  float: left;
-  margin: 15px;
-  border: 2px outset #ddc18c;
-}
-
-#osc {
-  background-color: #CC0066;
-  width: 132px;
-  height: 132px;
-
-}
-
-#osc2 {
-  background-color: #66387a;
-  width: 132px;
-  height: 132px;
-}
-
-#osc3 {
-  background-color: #0099FF;
-  width: 132px;
-  height: 132px;
-
-}
-
-#osc4 {
-  background-color: #00CC99;
-  width: 132px;
-  height: 132px;
-}
-
-</style>
