@@ -1,0 +1,78 @@
+h1 {
+  font-family: 'Frijole', cursive;
+  font-size: 50px;
+  color: #4D4D4D;
+  background: #ccc
+  color: #ddd
+  background: #ccc
+  color: #ddd
+}
+h1:hover {
+  color: brown;
+}
+
+body {
+  background-color: #FFFFE0;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+.synth {
+
+  width: 800px;
+  height: 300px;
+  background: tan;
+  background-image: url(http://i121.photobucket.com/albums/o204/Lumi_Nous/light_wood_textures_1600x1200_zpszk4vtqg4.jpg);
+  border: 2px outset #ddc18c;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+}
+
+.buttons{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+.button {
+  float: left;
+  margin: 15px;
+  border: 2px outset #ddc18c;
+}
+
+.button:hover {
+  background-color: white;
+}
+
+#osc {
+  background-color: #CC0066;
+  width: 132px;
+  height: 132px;
+
+}
+
+#osc2 {
+  background-color: #66387a;
+  width: 132px;
+  height: 132px;
+}
+
+#osc3 {
+  background-color: #0099FF;
+  width: 132px;
+  height: 132px;
+
+}
+
+#osc4 {
+  background-color: #00CC99;
+  width: 132px;
+  height: 132px;
+}

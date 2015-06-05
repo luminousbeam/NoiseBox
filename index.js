@@ -1,23 +1,14 @@
 var express = require("express")
 var app = express()
-
-
+// var hbs = require("hbs")
+app.set("view engine", "hbs");
+// hbs.registerPartials(__dirname+"/views/partials")
 //
+
+//WEBSOCKET
 // var http = require('http').Server(app);
 // var io = require('socket.io');
 // var io = io(http);
-//
-// app.set("view engine", "hbs");
-//
-
-
-
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/public/index.html');
-});
-
-
-
 //
 // io.on('connection', function(socket){
 //   socket.on("chatsend", function(message){
@@ -25,6 +16,18 @@ app.get('/', function(req, res){
 //   });
 // });
 //
+
+
+//RETURNS INDEX.HTML W/O THE NEED OF HANDLEBARS OR MIDDLEWARE
+// app.get('/', function(req, res){
+//   res.sendFile(__dirname + '/public/index.html');
+// });
+
+app.use(express.static(__dirname + '/public'))
+
+app.get("/", function( req, res ){
+  res.render("index")
+})
 
 
 
