@@ -1,10 +1,10 @@
 <!DOCTYPE hmtl>
-
+<html>
 <title>NoizeBox</title>
 <head>
-  <!-- <link href='http://fonts.googleapis.com/css?family=Cabin+Sketch:700' rel='stylesheet' type='text/css'> -->
+
   <link href='http://fonts.googleapis.com/css?family=Frijole' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <link rel="stylesheet" type="text/css" ref="styles.css">
 </head>
 <body>
 <h1>NoizeBox</h1>
@@ -45,18 +45,23 @@
 
 <button class="snare-drum">Snare Drum (back-slash)</button> -->
 </body>
-
+</html>
 <!-- CSS -->
 <style>
+
 h1 {
   font-family: 'Frijole', cursive;
   font-size: 50px;
   color: #4D4D4D;
-
-  /*font-family: 'Cabin Sketch', cursive;
-  font-size: 80px;
-  color: #8F2400;*/
+  background: #ccc
+  color: #ddd
+  background: #ccc
+  color: #ddd
 }
+h1:hover {
+  color: brown;
+}
+
 body {
   background-color: #FFFFE0;
 }
@@ -68,17 +73,15 @@ body {
   transform: translate(-50%, -50%)
 }
 .synth {
-  /*size*/
+
   width: 800px;
   height: 300px;
-  /*background*/
   background: tan;
   background-image: url(http://i121.photobucket.com/albums/o204/Lumi_Nous/light_wood_textures_1600x1200_zpszk4vtqg4.jpg);
-  /*border*/
   border: 2px outset #ddc18c;
-  /*position*/
   overflow: hidden;
   position: relative;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
 }
 
 .buttons{
@@ -93,6 +96,10 @@ body {
   float: left;
   margin: 15px;
   border: 2px outset #ddc18c;
+}
+
+.button:hover {
+  background-color: white;
 }
 
 #osc {
@@ -120,11 +127,13 @@ body {
   width: 132px;
   height: 132px;
 }
+
 </style>
 
 
 <!-- JAVASCRIPT -->
 <script>
+
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
     myAudioContext = new window.AudioContext();
   var osc = document.getElementById("osc");
@@ -189,6 +198,5 @@ var osc4 = document.getElementById("osc4");
   osc4.onmouseup = function() {
     oscillator.disconnect();
   };
-
 
 </script>
