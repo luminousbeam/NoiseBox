@@ -3,11 +3,11 @@ var app = express()
 
 
 //
-var http = require('http').Server(app);
-var io = require('socket.io');
-var io = io(http);
-
-app.set("view engine", "hbs");
+// var http = require('http').Server(app);
+// var io = require('socket.io');
+// var io = io(http);
+//
+// app.set("view engine", "hbs");
 //
 
 
@@ -19,11 +19,11 @@ app.get('/', function(req, res){
 
 
 //
-io.on('connection', function(socket){
-  socket.on("chatsend", function(message){
-    io.emit("chatpost", message);
-  });
-});
+// io.on('connection', function(socket){
+//   socket.on("chatsend", function(message){
+//     io.emit("chatpost", message);
+//   });
+// });
 //
 
 
