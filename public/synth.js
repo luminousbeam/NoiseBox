@@ -1,5 +1,5 @@
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    myAudioContext = new window.AudioContext();
+  var myAudioContext = new window.AudioContext();
   var osc = document.getElementById("osc");
 
 //Oscillator # 1 Sine
