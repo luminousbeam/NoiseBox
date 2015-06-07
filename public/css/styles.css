@@ -37,6 +37,7 @@ p {
   background: tan;
   background-image: url(http://i121.photobucket.com/albums/o204/Lumi_Nous/light_wood_textures_1600x1200_zpszk4vtqg4.jpg);
   border: 2px outset #ddc18c;
+  border-radius: 25px;
   overflow: hidden;
   position: relative;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
