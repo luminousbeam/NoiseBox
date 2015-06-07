@@ -29,7 +29,8 @@ p {
 
 .text {
   text-align: center;
-  padding: 420px 160px 50px 160px;
+  padding: 0 160px 50px 160px;
+  margin-top: 50px;
 }
 .synth {
   width: 800px;
