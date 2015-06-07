@@ -65,6 +65,8 @@ p {
   background-color: #CC0066;
   width: 132px;
   height: 132px;
+  border: 2px outset #ddc18c;
+  border-radius: 25px;
 
 }
 
@@ -72,12 +74,16 @@ p {
   background-color: #66387a;
   width: 132px;
   height: 132px;
+  border: 2px outset #ddc18c;
+  border-radius: 25px;
 }
 
 #osc3 {
   background-color: #0099FF;
   width: 132px;
   height: 132px;
+  border: 2px outset #ddc18c;
+  border-radius: 25px;
 
 }
 
@@ -85,4 +91,6 @@ p {
   background-color: #00CC99;
   width: 132px;
   height: 132px;
+  border: 2px outset #ddc18c;
+  border-radius: 25px;
 }
