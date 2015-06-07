@@ -54,6 +54,7 @@ p {
   float: left;
   margin: 15px;
   border: 2px outset #ddc18c;
+  border-radius: 25px;
 }
 
 .button:hover {
