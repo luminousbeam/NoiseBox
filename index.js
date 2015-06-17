@@ -1,5 +1,4 @@
-var express = require("express");
-var app = express();
+var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var hbs = require("hbs")
@@ -10,6 +9,10 @@ app.use(express.static(__dirname + '/public'));
 app.get("/", function( req, res ){
   res.render("index");
 });
+
+// app.get('/', function(req, res){
+//   res.sendFile(__dirname + '/views/layout.hbs');
+// });
 
 // Chat socket.io
 io.on('connection', function(socket){
