@@ -1,3 +1,5 @@
+// SYNTH JS
+
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
   var myAudioContext = new window.AudioContext();
   var osc = document.getElementById("osc");
