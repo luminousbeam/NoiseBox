@@ -3,16 +3,16 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var hbs = require("hbs")
 
-app.set("view engine", "hbs");
-app.use(express.static(__dirname + '/public'));
-
-app.get("/", function( req, res ){
-  res.render("index");
-});
-
-// app.get('/', function(req, res){
-//   res.sendFile(__dirname + '/views/layout.hbs');
+// app.set("view engine", "hbs");
+// app.use(express.static(__dirname + '/public'));
+//
+// app.get("/", function( req, res ){
+//   res.render("index");
 // });
+
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/views/index.html');
+});
 
 // Chat socket.io
 io.on('connection', function(socket){

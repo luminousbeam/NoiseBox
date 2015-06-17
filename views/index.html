@@ -1,0 +1,283 @@
+<!doctype html>
+<html>
+  <head>
+
+    <link href='https://fonts.googleapis.com/css?family=Frijole' rel='stylesheet' type='text/css'>
+    <title>NoizeBox</title>
+
+    <style>
+
+    /*CHAT*/
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+
+      body {
+      font: 13px Helvetica, Arial;
+      }
+
+      form {
+      background: #000;
+      padding: 3px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      }
+
+      form input {
+      border: 0;
+      padding: 10px;
+      width: 90%;
+      margin-right: .5%;
+      }
+
+      form button {
+      width: 9%;
+      background: rgb(130, 224, 255);
+      border: none;
+      padding: 10px;
+      }
+
+      #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      }
+
+      #messages li {
+      padding: 5px 10px;
+      }
+      #messages li:nth-child(odd) {
+      background: #eee;
+      }
+
+      /*SYNTH CSS*/
+
+      h1 {
+      font-family: 'Frijole', cursive;
+      font-size: 50px;
+      color: #4D4D4D;
+      background: #ccc
+      color: #ddd
+      background: #ccc
+      color: #ddd
+      }
+
+      h1:hover {
+      color: brown;
+      }
+
+      body {
+      background-color: #FFFFE0;
+      }
+      .container {
+      }
+
+      p {
+      font-family: Courier;
+      font-size: 14px;
+      }
+
+      .text {
+      text-align: center;
+      margin: 70px auto 0 auto;
+      width: 650px;
+      position: relative;
+      }
+
+      .synth {
+      width: 800px;
+      height: 300px;
+      background: tan;
+      background-image: url(http://i121.photobucket.com/albums/o204/Lumi_Nous/light_wood_textures_1600x1200_zpszk4vtqg4.jpg);
+      border: 2px outset #ddc18c;
+      border-radius: 25px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.5);
+      margin: 100px auto 50px auto;
+      }
+
+      .buttons{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%)
+      }
+
+      .button {
+      float: left;
+      margin: 15px;
+      border: 2px outset #ddc18c;
+      border-radius: 25px;
+      }
+
+      .button:hover {
+      background-color: white;
+      }
+
+      #osc {
+      background-color: #CC0066;
+      width: 132px;
+      height: 132px;
+      border: 2px outset #ddc18c;
+      border-radius: 25px;
+      }
+
+      #osc2 {
+      background-color: #66387a;
+      width: 132px;
+      height: 132px;
+      border: 2px outset #ddc18c;
+      border-radius: 25px;
+      }
+
+      #osc3 {
+      background-color: #0099FF;
+      width: 132px;
+      height: 132px;
+      border: 2px outset #ddc18c;
+      border-radius: 25px;
+      }
+
+      #osc4 {
+      background-color: #00CC99;
+      width: 132px;
+      height: 132px;
+      border: 2px outset #ddc18c;
+      border-radius: 25px;
+      }
+
+    </style>
+
+      </head>
+  <body>
+            <h1>NoizeBox</h1>
+      <div class="container">
+        <!-- SYNTH -->
+        <div class="synth">
+
+          <div class="buttons">
+
+            <div class="button">
+              <div id="osc"></div>
+              <input id="oscPitch" type="range" min="50" max="5000" step="1" value="90" />
+            </div>
+
+            <div class="button">
+              <div id="osc2"></div>
+              <input id="oscPitch2" type="range" min="50" max="5000" step="1" value="90" />
+            </div>
+
+            <div class="button">
+              <div id="osc3"></div>
+              <input id="oscPitch3" type="range" min="50" max="5000" step="1" value="90" />
+            </div>
+
+            <div class="button">
+              <div id="osc4"></div>
+              <input id="oscPitch4" type="range" min="50" max="5000" step="1" value="90" />
+            </div>
+
+          </div>
+        </div>
+
+
+    <p><div class="text">
+    <p>Use the slider under each button to select a frequency pitch, click on the button with your mouse to hear a sound. If you want a continuous sound, while you still have the mouse button pressed, hover over the frequency slider. When you want the sounds to stop, refresh the page.</p>
+    </div></p>
+
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+    // CHAT
+      var socket = io();
+      $('form').submit(function(){
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+      });
+      socket.on('chat message', function(msg){
+        $('#messages').append($('<li>').text(msg));
+      });
+    </script>
+  </div>
+<script>
+ // SYNTH JS
+
+  window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    var myAudioContext = new window.AudioContext();
+    var osc = document.getElementById("osc");
+
+  //Oscillator # 1 Sine
+    osc.onmousedown = function() {
+      var oscPitch = document.getElementById('oscPitch').value;
+      oscillator = myAudioContext.createOscillator(), //creates the oscillator
+      oscillator.type = 'sine';
+      oscillator.frequency.value = oscPitch;
+      oscillator.connect(myAudioContext.destination); //connects it to output
+      oscillator.start(0);
+    };
+
+    osc.onmouseup = function() {
+      oscillator.disconnect();
+    };
+
+  //Oscillator # 2 Square
+  var osc2 = document.getElementById("osc2");
+    osc2.onmousedown = function() {
+      var oscPitch = document.getElementById('oscPitch2').value;
+      oscillator = myAudioContext.createOscillator(), //creates the oscillator
+      oscillator.type = 'square';
+      oscillator.frequency.value = oscPitch;
+      oscillator.connect(myAudioContext.destination); //connects it to output
+      oscillator.start(0);
+    };
+
+    osc2.onmouseup = function() {
+      oscillator.disconnect();
+    };
+
+  //Oscillator # 3 Sawtooth
+  var osc3 = document.getElementById("osc3");
+
+    osc3.onmousedown = function() {
+      var oscPitch = document.getElementById('oscPitch3').value;
+      oscillator = myAudioContext.createOscillator(), //creates the oscillator
+      oscillator.type = 'sawtooth';
+      oscillator.frequency.value = oscPitch;
+      oscillator.connect(myAudioContext.destination); //connects it to output
+      oscillator.start(0);
+    };
+
+    osc3.onmouseup = function() {
+      oscillator.disconnect();
+    };
+
+  //Oscillator # 4 Triangle
+  var osc4 = document.getElementById("osc4");
+
+    osc4.onmousedown = function() {
+      var oscPitch = document.getElementById('oscPitch4').value;
+      oscillator = myAudioContext.createOscillator(), //creates the oscillator
+      oscillator.type = 'triangle';
+      oscillator.frequency.value = oscPitch;
+      oscillator.connect(myAudioContext.destination); //connects it to output
+      oscillator.start(0);
+    };
+
+    osc4.onmouseup = function() {
+      oscillator.disconnect();
+    };
+
+  </script>
+
+  </body>
+</html>
